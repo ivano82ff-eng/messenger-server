@@ -1,14 +1,20 @@
 {
   "name": "messenger-server",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Messenger server per contract (HTTP + WebSocket + PostgreSQL)",
+  "main": "src/index.js",
   "scripts": {
-  "start": "node src/index.js",
-  "dev": "nodemon src/index.js",
-  "migrate": "node src/db/migrate.js"
-},
-  "keywords": [],
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "migrate": "node src/db/migrate.js",
+    "test": "node tests/ws.test.js"
+  },
+  "keywords": [
+    "messenger",
+    "websocket",
+    "e2ee",
+    "postgresql"
+  ],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
@@ -23,8 +29,6 @@
     "nodemon": "^3.1.14"
   },
   "engines": {
-  "node": ">=20"
+    "node": ">=20"
+  }
 }
-
-}
-

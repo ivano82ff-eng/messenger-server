@@ -1,5 +1,7 @@
 'use strict';
 
+const { wsLog, wsError } = require('../lib/log');
+
 const { WebSocketServer } = require('ws');
 const pool = require('../db/pool');
 const { verifyAccessToken } = require('../lib/tokens');
@@ -112,7 +114,7 @@ async function handleEnvelope(ws, userId, msg) {
 
   await withUserLock(recipient, async () => {
     const set = getUserSockets(recipient);
-    console.log('[ws] deliver to', recipient, 'sockets=', set.size);
+    wsLog('[ws] deliver to', recipient, 'sockets=', set.size);
     if (set.size === 0) return;
 
     const { rows } = await pool.query(
